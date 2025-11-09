@@ -1,6 +1,7 @@
 from neopixel import Neopixel
 from machine import Pin
 import time, random
+#
 
 # Setup
 button1 = Pin(20, Pin.IN, Pin.PULL_UP)  # Spiller 1
