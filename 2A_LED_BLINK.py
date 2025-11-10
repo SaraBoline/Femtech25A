@@ -1,14 +1,19 @@
-import machine
 from machine import Pin
-from time import sleep
+import time
 
+# Opsæt LED på pin 1
+led = Pin(0, Pin.OUT)
 
-button = machine.Pin(5, machine.Pin.IN, machine.Pin.PULL_UP)
-led = Pin(1, Pin.OUT)
+print("Skriv 'on' for at tænde LED'en og 'off' for at slukke den.")
 
 while True:
-    if not button.value():
+    command = input("Kommando: ").strip().lower()  # Læs brugerinput fra terminalen
+
+    if command == "on":
         led.value(1)
-        print('Button pressed!')
-        sleep(.2)
+        print("LED tændt 💡")
+    elif command == "off":
         led.value(0)
+        print("LED slukket 💤")
+    else:
+        print("Ugyldig kommando. Skriv 'on' eller 'off'.")
